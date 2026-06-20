@@ -11,7 +11,7 @@ export default function RootLayout({
     <html lang="en">
       {/* Add suppressHydrationWarning right here */}
       <body 
-        className="bg-[#FAF9F5] text-gray-800 min-h-screen flex flex-col"
+        className="bg-[#FAF9F5] dark:bg-[#FAF9F5] text-gray-800 min-h-screen flex flex-col"
         suppressHydrationWarning
       >
         <Navbar />

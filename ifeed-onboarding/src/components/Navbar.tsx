@@ -15,10 +15,8 @@ export default function Navbar() {
 
   return (
     <header className="h-16 bg-[#FAF9F5] border-b border-gray-100 flex items-center px-12 justify-between sticky top-0 z-50">
-      {/* Brand Logo */}
       <div className="text-xl font-bold text-[#1E5631]">iFeed V2</div>
       
-      {/* Nav Items */}
       <nav className="flex items-center gap-8 pr-12">
         {navItems.map((item) => {
           const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);

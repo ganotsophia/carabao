@@ -5,7 +5,6 @@ export default function ModulesPage() {
     <div className="max-w-5xl mx-auto space-y-6 relative">
 
       <div className="bg-white rounded-2xl p-8 shadow-sm relative overflow-hidden">
-        {/* faint background image overlay like the design */}
         <div className="absolute inset-0 opacity-10 bg-[url('/bg-pattern.png')] bg-cover bg-center pointer-events-none" />
 
         <div className="relative z-10">
@@ -111,8 +110,6 @@ export default function ModulesPage() {
                   </button>
                 </div>
               </div>
-
-              {/* Course progress removed per request */}
             </aside>
 
           </div>

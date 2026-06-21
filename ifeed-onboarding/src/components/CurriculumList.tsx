@@ -1,9 +1,10 @@
-// src/components/CurriculumList.tsx
 "use client";
 
 import { useState } from "react";
 import { ChevronDown, ChevronUp, PlayCircle, CheckCircle2, Lock } from "lucide-react";
 import { curriculumData } from "./curriculumData";
+import Link from "next/link";
+
 
 export default function CurriculumList() {
   const [expandedModules, setExpandedModules] = useState<number[]>([2]);
@@ -111,9 +112,12 @@ export default function CurriculumList() {
 
                 {/* Big Action Button */}
                 <div className="pt-2">
-                  <button className="w-full bg-[#A36A3B] hover:bg-[#8F5B30] text-white font-bold text-sm py-3 px-4 rounded-xl transition-colors shadow-xs tracking-wide">
+                  <Link 
+                    href={`/modules`} // This dynamically directs to /modules/1, /modules/2, etc.
+                    className="block w-full bg-[#A36A3B] hover:bg-[#8F5B30] text-white text-center font-bold text-sm py-3 px-4 rounded-xl transition-colors shadow-xs tracking-wide"
+                  >
                     Start Module
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

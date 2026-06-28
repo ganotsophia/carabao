@@ -1,3 +1,8 @@
+export interface TestCase {
+  testCase: string;
+  expectedResult: string;
+}
+
 export interface Lesson {
   id: string;
   title: string;
@@ -5,6 +10,8 @@ export interface Lesson {
   isCompleted: boolean;
   summary: string;
   steps: string[];
+  stepTitles?: string[];
+  testCases?: TestCase[];
 }
 
 export interface ModuleItem {
@@ -32,38 +39,47 @@ export const curriculumData: ModuleItem[] = [
     lessons: [
       {
         id: "1.1",
-        title: "Welcome to iFeed V2",
+        title: "What is iFeed V2?",
         duration: "5 min",
         isCompleted: true,
-        summary: "Get introduced to the iFeed V2 platform and understand the key navigation elements.",
-        steps: [
-          "Explore the app layout and learn where modules, lessons, and resources are located.",
-          "Identify how to move between the curriculum and module views.",
-          "See how your lesson progress is tracked."
-        ]
+        summary: "Learn what iFeed V2 is, how it helps formulate cost-effective carabao feeds using the Simplex Algorithm, and the different types of users who can benefit from the system (farmers and nutritionists).",
+        steps: []
       },
       {
         id: "1.2",
-        title: "The Science of Carabao Nutrition",
-        duration: "10 min",
+        title: "Creating and Managing Your Account",
+        duration: "5 min",
         isCompleted: true,
-        summary: "Learn the nutrition concepts that power feed planning and ingredient selection.",
+        summary: "Learn how to create an account, sign in using Google authentication, and securely sign out.",
         steps: [
-          "Review key nutrients such as protein, energy, and fiber.",
-          "Understand why these metrics matter for carabao health.",
-          "Connect nutrient science to the platform’s ingredient tools."
+          "Allow new users to create an account through Google, ensuring a secure, passwordless account.",
+          "Enable existing users to log in through Google Sign-In for a secure and quick login experience.",
+          "Allow users to securely log out, terminating active sessions to protect their information."
+        ],
+        stepTitles: ["Sign Up", "Sign In", "Sign Out"],
+        testCases: [
+          { testCase: "Sign up using a valid Google account", expectedResult: "User account is created and redirected to dashboard" },
+          { testCase: "Sign in using an existing Google account", expectedResult: "User successfully logs in" },
+          { testCase: "Sign out from dashboard", expectedResult: "User session ends and is redirected to login page" },
+          { testCase: "Attempt to access dashboard after signing out", expectedResult: "User is prompted to log in again" }
         ]
       },
       {
         id: "1.3",
-        title: "Setting up Google Authentication",
-        duration: "5 min",
+        title: "Reading the Dashboard",
+        duration: "10 min",
         isCompleted: true,
-        summary: "Set up secure access to iFeed V2 by linking your Google account.",
+        summary: "Understand the main sections of the dashboard including Start Formulating, My Formulations, and the Ingredients Library.",
         steps: [
-          "Open the Google sign-in flow from the login page.",
-          "Grant the requested permissions to access the app.",
-          "Confirm that your account is connected and ready to use."
+          "Displays the list of active formulations either created by the user or shared with the user.",
+          "Shows the ingredients provided by the application."
+        ],
+        stepTitles: ["Navigate through Start Formulating & My Formulations", "Navigate through Ingredients Library"],
+        testCases: [
+          { testCase: "Open Start Formulating", expectedResult: "Formulation options are displayed" },
+          { testCase: "Open My Formulations", expectedResult: "User's formulations are displayed" },
+          { testCase: "Open Ingredients Library", expectedResult: "Ingredient list is displayed" },
+          { testCase: "Open a formulation from My Formulations", expectedResult: "Formulation details load successfully" }
         ]
       }
     ]

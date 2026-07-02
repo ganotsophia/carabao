@@ -25,15 +25,7 @@ export default function LessonView({
     <div className="max-w-6xl mx-auto space-y-6">
       <div className="bg-white rounded-3xl p-8 shadow-sm">
         <div className="space-y-4">
-          <div className="flex items-center justify-between gap-4">
-            <Link
-              href={`/modules/${moduleItem.slug}`}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#4E7B5A] hover:text-[#1E5631]"
-            >
-              <ChevronLeft className="w-4 h-4" />
-              Back to {moduleItem.title}
-            </Link>
-          </div>
+
           <div className="text-sm font-semibold uppercase tracking-[0.28em] text-[#4E7B5A]">
             Module {moduleItem.id}
           </div>

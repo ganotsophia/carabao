@@ -11,7 +11,8 @@ import {
   Award, 
   Settings, 
   HelpCircle, 
-  Download 
+  Download,
+  ChevronLeft 
 } from "lucide-react";
 
 import { curriculumData } from "./curriculumData";
@@ -48,11 +49,22 @@ export default function Sidebar() {
       <div className="space-y-6">
         {isModulesTab ? (
           <>
+            {/* Back to Curriculum Button Block */}
+            <div className="mb-2">
+              <Link
+                href="/curriculum" 
+                className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-emerald-200/80 hover:text-white transition-colors group"
+              >
+                <ChevronLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-0.5" />
+                Back to Curriculum
+              </Link>
+            </div>
+  
             <div>
               <h2 className="text-2xl font-bold tracking-tight">Module {selectedModule.id}</h2>
               <div className="text-xs text-emerald-200/70 mt-1">{selectedModule.title}</div>
             </div>
-
+  
             <nav className="mt-4 space-y-2">
               {selectedModule.lessons.map((lesson, idx) => {
                 const isActiveLesson = currentLessonIdx === idx;
@@ -77,7 +89,7 @@ export default function Sidebar() {
               <h2 className="text-2xl font-bold tracking-tight">Curriculum</h2>
               <p className="text-xs text-emerald-200/70 mt-1">6 Modules • 20 Lessons</p>
             </div>
-
+  
             <nav className="space-y-1">
               {modules.map((mod) => (
                 <Link
@@ -93,7 +105,7 @@ export default function Sidebar() {
           </>
         )}
       </div>
-
+  
       <div className="space-y-4 pt-4 border-t border-emerald-800">
         <Link 
           href="/resources"
@@ -102,7 +114,7 @@ export default function Sidebar() {
           <Download className="w-4 h-4" />
           Download Templates
         </Link>
-
+  
         <div className="space-y-1 text-sm text-emerald-100">
           <button className="w-full flex items-center gap-3 px-3 py-2 hover:bg-emerald-800/50 rounded-lg transition-colors text-left">
             <Settings className="w-4 h-4" />

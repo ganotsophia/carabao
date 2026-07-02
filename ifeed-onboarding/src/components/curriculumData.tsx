@@ -18,6 +18,7 @@ export interface Lesson {
   steps: string[];
   stepTitles?: string[];
   stepDetails?: string[][];
+  stepImages?: string[][];
   testCases?: TestCase[];
   testCaseGroups?: TestCaseGroup[];
 }
@@ -65,6 +66,11 @@ export const curriculumData: ModuleItem[] = [
           "Allow users to securely log out, terminating active sessions to protect their information."
         ],
         stepTitles: ["Sign Up", "Sign In", "Sign Out"],
+        stepImages: [
+          ["/auth.png"],
+          [""],
+          [""]
+        ],
         testCases: [
           { testCase: "Sign up using a valid Google account", expectedResult: "User account is created and redirected to dashboard" },
           { testCase: "Sign in using an existing Google account", expectedResult: "User successfully logs in" },
@@ -83,6 +89,7 @@ export const curriculumData: ModuleItem[] = [
           "Shows the ingredients provided by the application."
         ],
         stepTitles: ["Navigate through Start Formulating & My Formulations", "Navigate through Ingredients Library"],
+        
         testCases: [
           { testCase: "Open Start Formulating", expectedResult: "Formulation options are displayed" },
           { testCase: "Open My Formulations", expectedResult: "User's formulations are displayed" },

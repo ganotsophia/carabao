@@ -8,6 +8,7 @@ type LessonViewProps = {
   customSummary?: string;
   customSteps?: string[];
   customStepTitles?: string[];
+  tabs?: React.ReactNode;
 };
 
 export default function LessonView({
@@ -16,6 +17,7 @@ export default function LessonView({
   customSummary,
   customSteps,
   customStepTitles,
+  tabs,
 }: LessonViewProps) {
   const lessonItem = moduleItem.lessons[lessonIndex];
   const summary = customSummary ?? lessonItem.summary;
@@ -25,21 +27,13 @@ export default function LessonView({
   const testCaseGroups = lessonItem.testCaseGroups;
   const prevLesson = lessonIndex > 0 ? lessonIndex : null;
   const nextLesson = lessonIndex + 1 < moduleItem.lessons.length ? lessonIndex + 2 : null;
-
+  
   return (
     <div className="max-w-6xl mx-auto space-y-6">
       {/* Header */}
       <div className="bg-white rounded-3xl p-8 shadow-sm">
         <div className="space-y-4">
-          <div className="flex items-center justify-between gap-4">
-            <Link
-              href={`/modules/${moduleItem.slug}`}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#4E7B5A] hover:text-[#1E5631]"
-            >
-              <ChevronLeft className="w-4 h-4" />
-              Back to {moduleItem.title}
-            </Link>
-          </div>
+
           <div className="text-sm font-semibold uppercase tracking-[0.28em] text-[#4E7B5A]">
             Module {moduleItem.id}
           </div>
@@ -47,8 +41,11 @@ export default function LessonView({
             Lesson {lessonIndex + 1}: {lessonItem.title}
           </h1>
           <p className="max-w-3xl text-gray-600 leading-7">{summary}</p>
+
         </div>
+
       </div>
+      {tabs && <div className="px-2">{tabs}</div>}
 
       <div className="grid gap-8 lg:grid-cols-[1.8fr_1fr]">
         <div className="space-y-6">

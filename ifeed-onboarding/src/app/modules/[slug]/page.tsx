@@ -20,15 +20,7 @@ export default async function ModulePage({ params }: ModulePageProps) {
   return (
     <div className="max-w-5xl mx-auto space-y-6">
       {/* A simple back link helps learners return to the full curriculum without feeling lost. */}
-      <div>
-        <Link
-          href="/curriculum"
-          className="inline-flex items-center gap-2 rounded-full border border-transparent bg-white/90 px-4 py-2 text-sm font-semibold text-[#1E5631] transition hover:bg-white"
-        >
-          <ChevronLeft className="w-4 h-4" />
-          Back to curriculum
-        </Link>
-      </div>
+
       {/* This summary card introduces the module and gives learners a quick sense of what they are about to cover. */}
       <div className="rounded-3xl border border-[#D7E3D4] bg-[#F6FAF5] p-10 shadow-sm">
         <div className="space-y-4">

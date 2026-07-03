@@ -379,51 +379,151 @@ export const curriculumData: ModuleItem[] = [
     ]
   },
   {
-    id: 5,
-    slug: "advanced",
-    title: "Advanced Features",
-    lessonsCount: 3,
-    duration: "40 min",
-    objective: "Explore advanced reporting, safety checks, and analytics tools.",
-    completed: false,
-    active: false,
-    lessons: [
-      {
-        id: "5.1",
-        title: "Safety and Validation Tools",
-        duration: "15 min",
-        isCompleted: false,
-        summary: "Use validation tools to ensure formulas are safe and compliant.",
-        steps: [
-          "Check formulas for nutrient and ingredient safety.",
-          "Review validation alerts and recommendations.",
-          "Fix any issues before finalizing the formula."
-        ]
-      },
-      {
-        id: "5.2",
-        title: "Analytics and Reporting",
-        duration: "15 min",
-        isCompleted: false,
-        summary: "Learn how to generate reports and use analytics for decision-making.",
-        steps: [
-          "Open the reporting dashboard and review key metrics.",
-          "Use filters to focus on the data you need.",
-          "Apply insights to improve future plans."
-        ]
-      },
-      {
-        id: "5.3",
-        title: "Advanced Workflow Tips",
-        duration: "10 min",
-        isCompleted: false,
-        summary: "Discover expert workflow tips for faster and more accurate planning.",
-        steps: [
-          "Use templates and shortcuts to save time.",
-          "Keep your ingredient library well organized.",
-          "Leverage advanced features for repeatable success."
-        ]
-      }
-    ]
-  }
+  id: 5,
+  slug: "advanced",
+  title: "Advanced Features",
+  lessonsCount: 3,
+  duration: "40 min",
+  objective: "Use advanced formulation tools, configure detailed constraints, and utilize AI-powered formulation assistance.",
+  completed: false,
+  active: false,
+  lessons: [
+    {
+      id: "5.1",
+      title: "Advanced Interface",
+      duration: "10 min",
+      isCompleted: false,
+      summary: "Learn how to use the Advanced Interface for detailed formulation configuration, including No Limits, Fixed (kg), and Manual Percentage (%) constraint types.",
+      steps: [
+        "Click Show Advanced, then select Kg-Based Constraints (Recommended) or Percentage-Based Constraints (Recommended for nutritionists).",
+        "Click the Trash icon to delete an ingredient or nutrient.",
+        "Choose one of the following constraint types: No Limits, Fixed (kg), or Manual Percentage (%).",
+        "Click Add Ingredients.",
+        "Click Add Nutrient.",
+        "Click Add Ratio, select two nutrients, and enter the ratio value.",
+        "Enter minimum and maximum nutrient values.",
+        "Click the Trash icon to delete entries.",
+        "Click Add Ingredient.",
+        "Click Add Nutrient.",
+        "Click Add Ratio.",
+        "Enter minimum and maximum values for ingredients and nutrients.",
+        "Click the Trash icon to delete entries.",
+        "Click Add Ingredient.",
+        "Enter the desired percentage for each ingredient.",
+        "Click Optimize.",
+        "Click the Trash icon to delete ingredients."
+      ],
+      stepTitles: [
+        "Open the Advanced Interface",
+        "Delete Ingredients or Nutrients",
+        "Select Constraint Type",
+        "No Limits – Add Ingredients",
+        "No Limits – Add Nutrients",
+        "No Limits – Add Nutrient Ratio Constraint",
+        "No Limits – Configure Nutrient Limits",
+        "No Limits – Delete Entries",
+        "Fixed (kg) – Add Ingredients",
+        "Fixed (kg) – Add Nutrients",
+        "Fixed (kg) – Add Nutrient Ratio",
+        "Fixed (kg) – Configure Limits",
+        "Fixed (kg) – Delete Entries",
+        "Manual Percentage (%) – Add Ingredients",
+        "Manual Percentage (%) – Set Ingredient Percentages",
+        "Manual Percentage (%) – Optimize",
+        "Manual Percentage (%) – Delete Ingredients"
+      ],
+      stepImages: [
+        ["/advancedShowAdvanced.jpg"],
+        ["/advancedDeleteEntry.jpg"],
+        ["/advancedConstraintType.jpg"],
+        ["/advancedNoLimitsAddIngredient.jpg"],
+        ["/advancedNoLimitsAddNutrient.jpg"],
+        ["/advancedNoLimitsAddRatio.jpg", "/advancedNoLimitsSelectNutrients.jpg", "/advancedNoLimitsEnterRatio.jpg"],
+        ["/advancedNoLimitsNutrientLimits.jpg"],
+        ["/advancedNoLimitsDeleteEntry.jpg"],
+        ["/advancedFixedAddIngredient.jpg"],
+        ["/advancedFixedAddNutrient.jpg"],
+        ["/advancedFixedAddRatio.jpg"],
+        ["/advancedFixedConfigureLimits.jpg"],
+        ["/advancedFixedDeleteEntry.jpg"],
+        ["/advancedManualAddIngredient.jpg"],
+        ["/advancedManualSetPercentages.jpg"],
+        ["/advancedManualOptimize.jpg", "/advancedManualOptimizeResults.jpg"],
+        ["/advancedManualDeleteIngredient.jpg"]
+      ],
+      testCaseGroups: [
+        {
+          groupTitle: "Add Ingredients",
+          headerLabels: ["Ingredient", "Expected Result"],
+          cases: [
+            { testCase: "Napier Grass", expectedResult: "Ingredient is added to the formulation" },
+            { testCase: "Rice Bran", expectedResult: "Ingredient is added to the formulation" },
+            { testCase: "Corn Meal", expectedResult: "Ingredient is added to the formulation" },
+            { testCase: "Molasses", expectedResult: "Ingredient is added to the formulation" }
+          ]
+        },
+        {
+          groupTitle: "Add Nutrients",
+          headerLabels: ["Nutrient", "Expected Result"],
+          cases: [
+            { testCase: "Crude Protein", expectedResult: "Nutrient is added to the formulation" },
+            { testCase: "Dry Matter", expectedResult: "Nutrient is added to the formulation" },
+            { testCase: "Calcium", expectedResult: "Nutrient is added to the formulation" },
+            { testCase: "Phosphorus", expectedResult: "Nutrient is added to the formulation" }
+          ]
+        },
+        {
+          groupTitle: "Add Nutrient Ratio",
+          headerLabels: ["Nutrient 1 : Nutrient 2", "Ratio"],
+          cases: [
+            { testCase: "Calcium : Phosphorus", expectedResult: "2 : 1" }
+          ]
+        },
+        {
+          groupTitle: "Configure Fixed (kg)",
+          headerLabels: ["Ingredient", "Minimum / Maximum"],
+          cases: [
+            { testCase: "Napier Grass", expectedResult: "Min 25 kg / Max 40 kg" },
+            { testCase: "Rice Bran", expectedResult: "Min 5 kg / Max 10 kg" },
+            { testCase: "Corn Meal", expectedResult: "Min 3 kg / Max 8 kg" }
+          ]
+        },
+        {
+          groupTitle: "Configure Manual Percentage",
+          headerLabels: ["Ingredient", "Percentage"],
+          cases: [
+            { testCase: "Napier Grass", expectedResult: "65%" },
+            { testCase: "Rice Bran", expectedResult: "20%" },
+            { testCase: "Corn Meal", expectedResult: "12%" },
+            { testCase: "Mineral Mix", expectedResult: "3%" }
+          ]
+        }
+      ]
+    },
+    {
+      id: "5.2",
+      title: "Analytics and Reporting",
+      duration: "15 min",
+      isCompleted: false,
+      summary: "Learn how to generate reports and use analytics for decision-making.",
+      steps: [
+        "Open the reporting dashboard and review key metrics.",
+        "Use filters to focus on the data you need.",
+        "Apply insights to improve future plans."
+      ]
+    },
+    {
+      id: "5.3",
+      title: "Advanced Workflow Tips",
+      duration: "10 min",
+      isCompleted: false,
+      summary: "Discover expert workflow tips for faster and more accurate planning.",
+      steps: [
+        "Use templates and shortcuts to save time.",
+        "Keep your ingredient library well organized.",
+        "Leverage advanced features for repeatable success."
+      ]
+    }
+  ]
+}
 ];

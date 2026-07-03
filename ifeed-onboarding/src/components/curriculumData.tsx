@@ -263,7 +263,7 @@ export const curriculumData: ModuleItem[] = [
           "View each nutrient's abbreviation, description, unit, and nutrient group.",
           "Use the Search button to look up nutrients by name.",
           "Sort by names or group and Filter nutrients using the Sort and Filter buttons."
-        ],
+        ],  
         stepImages: [
           ["/navNutri.jpg"],
           ["/viewNutri.png"],
@@ -280,8 +280,8 @@ export const curriculumData: ModuleItem[] = [
     slug: "formulation",
     title: "Feed Formulation",
     lessonsCount: 4,
-    duration: "50 min",
-    objective: "Learn to build balanced feed formulas and optimize rations.",
+    duration: "40 min",
+    objective: " Create single and group carabao formulations, configure carabao profiles, add ingredients and nutrients, set formulation constraints, and interpret optimization results.    ",
     completed: false,
     active: false,
     lessons: [
@@ -292,46 +292,89 @@ export const curriculumData: ModuleItem[] = [
         isCompleted: false,
         summary: "Learn the basic principles of feed formulation and planning.",
         steps: [
-          "Review the goals of balanced feed formulation.",
-          "Match ingredient nutrients to target requirements.",
-          "Draft a simple formula before refining it."
+          "Open the Formulate Module",
+          "Create a New Formulation",
+          "Set Up Initial Details      ",
+          " Configure Carabao Details      ",
+          "Confirm Information",
+          "View the Formulation",
+
+        ],
+        stepImages: [
+          ["/navFormu.jpg"],
+          ["/createFormuS.jpg","/selectSingle.jpg"],
+          ["/setupInitial.jpg"],
+          ["/configCarabao.jpg"],
+          ["/confirmInfo.jpg"],
+          ["/viewFormuS.jpg"]
         ]
       },
+
       {
         id: "4.2",
-        title: "Balancing Protein and Energy",
-        duration: "15 min",
+        title: "Adding Ingredients to a Formulation",
+        duration: "10 min",
         isCompleted: false,
-        summary: "See how to balance protein and energy without compromising the formula.",
+        summary: "Learn how to add roughages, concentrates, mineral supplements, and manage formulation ingredients.",
         steps: [
           "Compare ingredient protein and energy contributions.",
           "Adjust ratios to meet both targets.",
           "Check the formula for nutrient balance."
-        ]
+        ],
+        stepImages: [
+          ["/addRoughage.jpg", "/addRoughage2.jpg"],
+          ["/addConcentrate.jpg"],
+          ["/addVits.jpg"],
+          ["/searchIng.jpg"],
+          ["/editFormu.jpg"],
+          ["/deleteIngre.jpg"]
+        ],
+        
       },
       {
         id: "4.3",
-        title: "Applying Feed Constraints",
-        duration: "10 min",
+        title: "Setting Ingredient and Nutrient Constraints",
+        duration: "6 min",
         isCompleted: false,
-        summary: "Apply practical constraints such as cost, ingredient availability, and safety limits.",
+        summary: "Learn how to configure ingredient limits and nutrient constraints before optimization.",
         steps: [
-          "Define the most important constraints for the recipe.",
-          "Use constraints to narrow ingredient choices.",
-          "Select the most viable balanced formula."
+          "Display Constraint Fields",
+          "Set Ingredient Limits",
+        ],
+        stepImages: [
+          ["/displayConstraints.jpg"],
+          ["/setIngre.jpg"],
         ]
       },
       {
         id: "4.4",
-        title: "Review and Adjustments",
+        title: "Running Optimization and Reading Results",
         duration: "10 min",
         isCompleted: false,
-        summary: "Review the formula and make adjustments for the best outcome.",
+        summary: "Learn how to optimize formulations and interpret optimization results.",
         steps: [
-          "Verify the formula against targets and constraints.",
-          "Evaluate cost and ingredient availability.",
-          "Adjust the recipe for better balance."
+          "Run Optimization",
+          "View Ingredient Breakdown",
+          "View Nutrient Breakdown",
+          "Generate PDF Report",
+          "Return to the Editor",
+          "Track Progress",
+
+        ],
+        stepImages: [
+          ["/runOptimization.jpg"],
+          ["/breakdown.jpg"],
+          ["/nutrients.jpg"],
+          ["/generate.jpg"],
+          ["/return.jpg"],
+          ["/track.jpg", "/track2.jpg"],
+
+
+
+
+          
         ]
+
       }
     ]
   },

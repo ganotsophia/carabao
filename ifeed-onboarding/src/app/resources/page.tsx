@@ -17,7 +17,7 @@ const resourcesData = [
     fileType: "PDF",
     icon: BookOpen,
     module: "introduction",
-    fileUrl: "/resources/module-1-introduction.pdf",
+    fileUrl: "/resources/Module_1_Getting_Started_with_iFeed_V2.pdf",
   },
   {
     id: "res-module-2",
@@ -28,7 +28,7 @@ const resourcesData = [
     fileType: "PDF",
     icon: BookOpen,
     module: "managing-ingredients",
-    fileUrl: "/resources/module-2-managing-ingredients.pdf",
+    fileUrl: "/resources/Module_2_Managing_Ingredients.pdf",
   },
   {
     id: "res-module-3",
@@ -39,7 +39,7 @@ const resourcesData = [
     fileType: "PDF",
     icon: BookOpen,
     module: "learning-nutrients",
-    fileUrl: "/resources/module-3-learning-nutrients.pdf",
+    fileUrl: "/resources/Module_3_Understanding_Nutrients.pdf",
   },
   {
     id: "res-module-4",
@@ -50,7 +50,7 @@ const resourcesData = [
     fileType: "PDF",
     icon: BookOpen,
     module: "feed-formulation",
-    fileUrl: "/resources/module-4-feed-formulation.pdf",
+    fileUrl: "/resources/Module_4_Creating_and_Managing_Formulations.pdf",
   },
   {
     id: "res-module-5",
@@ -61,7 +61,7 @@ const resourcesData = [
     fileType: "PDF",
     icon: BookOpen,
     module: "advanced-features",
-    fileUrl: "/resources/module-5-advanced-features.pdf",
+    fileUrl: "/resources/Module_5_Advanced_Features.pdf",
   },
 ];
 

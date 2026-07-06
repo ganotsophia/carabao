@@ -317,9 +317,14 @@ export const curriculumData: ModuleItem[] = [
         isCompleted: false,
         summary: "Learn how to add roughages, concentrates, mineral supplements, and manage formulation ingredients.",
         steps: [
-          "Compare ingredient protein and energy contributions.",
-          "Adjust ratios to meet both targets.",
-          "Check the formula for nutrient balance."
+          "Add Roughage  ",
+          "Add Concentrate",
+          "Add Vitamins/Minerals",
+          "Search Ingredients",
+          "Edit Formulation Information",
+          "Delete Ingredients",
+          
+
         ],
         stepImages: [
           ["/addRoughage.jpg", "/addRoughage2.jpg"],

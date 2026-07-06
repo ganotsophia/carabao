@@ -77,11 +77,11 @@ export default async function LessonPage({ params }: LessonPageProps) {
                       </p>
                       {lessonItem.stepImages && lessonItem.stepImages[idx] ? (
                         <div className="mt-4 rounded-3xl border border-[#D8E4D7] bg-white p-4">
-                          <img
-                            src={lessonItem.stepImages[idx]}
-                            alt={lessonItem.stepTitles?.[idx] || `Step ${idx + 1}`}
-                            className="rounded-2xl w-full object-cover max-h-96"
-                          />
+                      <img
+                        src={lessonItem.stepImages[idx] as unknown as string} // or just 'as any' if you're in a rush
+                        alt={lessonItem.stepTitles?.[idx] || `Step ${idx + 1}`}
+                        className="rounded-2xl w-full object-cover max-h-96"
+                      />
                         </div>
                       ) : idx === 0 ? (
                         <div className="mt-4 rounded-3xl border border-[#D8E4D7] bg-white p-4">

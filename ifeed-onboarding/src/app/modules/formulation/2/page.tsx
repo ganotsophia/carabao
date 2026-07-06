@@ -6,9 +6,13 @@ const moduleItem = curriculumData.find((module) => module.slug === "formulation"
 const lessonIndex = 1;
 const summary = "Adjust your formulation based on feed cost and ingredient availability.";
 const steps = [
-  "Set ingredient costs and constraints.",
-  "Rebalance the formula to lower cost without losing nutrition.",
-  "Save a version that fits real-world ingredient supplies.",
+  "Add Roughage  ",
+  "Add Concentrate",
+  "Add Vitamins/Minerals",
+  "Search Ingredients",
+  "Edit Formulation Information",
+  "Delete Ingredients",
+
 ];
 
 // Formulation module details.

@@ -291,15 +291,28 @@ export const curriculumData: ModuleItem[] = [
         duration: "15 min",
         isCompleted: false,
         summary: "Learn the basic principles of feed formulation and planning.",
-        steps: [
+
+        stepTitles: [
           "Open the Formulate Module",
           "Create a New Formulation",
-          "Set Up Initial Details      ",
-          " Configure Carabao Details      ",
+          "Set Up Initial Details",
+          "Configure Carabao Details",
           "Confirm Information",
           "View the Formulation",
 
         ],
+
+        steps: [
+          "",
+          "Click Add New. Select Add Single Carabao",
+          "Enter the Farmer's Name",
+          "• Enter the Carabao Name\n • Enter the Body Weight.\n • Select the Carabao Type from the dropdown list\n • Enter a Description (optional)\n • Click Continue.",
+          "• Review all entered information\n • Select from the dropdown options\n  • Click Create\n",
+          "• Open the Single Formulation tab\n• Locate the created formulation\n• Click View\n",
+
+
+        ],
+
         stepImages: [
           ["/navFormu.jpg"],
           ["/createFormuS.jpg","/selectSingle.jpg"],
@@ -307,6 +320,21 @@ export const curriculumData: ModuleItem[] = [
           ["/configCarabao.jpg"],
           ["/confirmInfo.jpg"],
           ["/viewFormuS.jpg"]
+        ],
+        testCaseGroups: [
+          {
+            groupTitle: "Test Cases",
+            headerLabels: ["Field", "Sample Input"],
+            cases: [
+              { testCase: "Farmer Name", expectedResult: "Juan Dela Cruz" },
+              { testCase: "Formulation Name", expectedResult: "Lactating Feed Mix" },
+              { testCase: "Carabao Name", expectedResult: "Bessie" },
+              { testCase: "Body Weight", expectedResult: "450 kg" },
+              { testCase: "Carabao Type", expectedResult: "Lactating" },
+              { testCase: "Description", expectedResult: "Healthy adult lactating carabao" }
+
+            ]
+          }
         ]
       },
 
@@ -324,7 +352,6 @@ export const curriculumData: ModuleItem[] = [
           "Edit Formulation Information",
           "Delete Ingredients",
           
-
         ],
         stepImages: [
           ["/addRoughage.jpg", "/addRoughage2.jpg"],

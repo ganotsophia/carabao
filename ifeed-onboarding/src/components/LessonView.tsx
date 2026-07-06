@@ -75,7 +75,10 @@ export default function LessonView({
                             ? `Step ${idx + 1}. ${stepTitles[idx]}`
                             : `Step ${idx + 1}`}
                         </div>
-                        <p className="mt-2 text-gray-600 leading-7">{stepText}</p>
+                        <p className="mt-1 text-m text-gray-600 whitespace-pre-line">
+                          {stepText}
+                        </p>
+
                         {/* Check if the step has an array of images and ensure it's not empty */}
                         {lessonItem?.stepImages && lessonItem.stepImages[idx] && lessonItem.stepImages[idx].length > 0 ? (
                           <div className="mt-4 flex flex-col gap-4"> {/* Stack multiple images vertically */}

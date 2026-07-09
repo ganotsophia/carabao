@@ -52,7 +52,7 @@ export default function Sidebar() {
             {/* Back to Curriculum Button Block */}
             <div className="mb-2">
               <Link
-                href="/curriculum" // Change this href if your main dashboard route is different (e.g., "/dashboard" or "/")
+                href="/curriculum" 
                 className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-emerald-200/80 hover:text-white transition-colors group"
               >
                 <ChevronLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-0.5" />

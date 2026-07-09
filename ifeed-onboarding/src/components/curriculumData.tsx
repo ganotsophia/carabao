@@ -18,6 +18,7 @@ export interface Lesson {
   steps: string[];
   stepTitles?: string[];
   stepDetails?: string[][];
+  stepImages?: string[][];
   testCases?: TestCase[];
   testCaseGroups?: TestCaseGroup[];
 }
@@ -65,6 +66,11 @@ export const curriculumData: ModuleItem[] = [
           "Allow users to securely log out, terminating active sessions to protect their information."
         ],
         stepTitles: ["Sign Up", "Sign In", "Sign Out"],
+        stepImages: [
+          ["/auth.jpg"],
+          [""],
+          ["/signout.jpg"]
+        ],
         testCases: [
           { testCase: "Sign up using a valid Google account", expectedResult: "User account is created and redirected to dashboard" },
           { testCase: "Sign in using an existing Google account", expectedResult: "User successfully logs in" },
@@ -79,10 +85,17 @@ export const curriculumData: ModuleItem[] = [
         isCompleted: true,
         summary: "Understand the main sections of the dashboard including Start Formulating, My Formulations, and the Ingredients Library.",
         steps: [
-          "Displays the list of active formulations either created by the user or shared with the user.",
-          "Shows the ingredients provided by the application."
+          "Shows the ingredients provided by the application.",
+          "Shows the nutritional information provided by the application",
+          "Displays the list of active formulations either created by the user or shared with the user."
+
         ],
-        stepTitles: ["Navigate through Start Formulating & My Formulations", "Navigate through Ingredients Library"],
+        stepTitles: ["Navigate through Ingredients Library", "Navigate through Nutrients Library", "Navigate through Feed Formulation"],
+        stepImages: [
+          ["/navIngre.jpg"],
+          ["/navNutri.jpg"],
+          ["/navFormu.jpg"]
+        ],
         testCases: [
           { testCase: "Open Start Formulating", expectedResult: "Formulation options are displayed" },
           { testCase: "Open My Formulations", expectedResult: "User's formulations are displayed" },
@@ -109,9 +122,13 @@ export const curriculumData: ModuleItem[] = [
         isCompleted: true,
         summary: "Learn how to view ingredient information including nutritional composition and availability.",
         steps: [
-          "Displays each ingredient's: Name, Price (PHP/kg), Availability, Picture (optional), Ingredient Group, and Nutritional Composition."
+          "Displays each ingredient's: Name, Price (PHP/kg), Ingredient Group, and Nutritional Composition."
         ],
         stepTitles: ["View Ingredient"],
+        stepImages: [
+          ["/viewIngre.png"],
+
+        ],
         testCases: [
           { testCase: "Open an ingredient", expectedResult: "Ingredient details are displayed" },
           { testCase: "View ingredient nutrition information", expectedResult: "Nutrient values are visible" },
@@ -129,6 +146,12 @@ export const curriculumData: ModuleItem[] = [
           "Enter the name of the ingredient.",
           "Filter the ingredient list using the Sort and Filter buttons."
         ],
+        stepImages: [
+          ["/searchIngre.jpg"],
+          [""],
+          ["/sortIngre.jpg"]
+        ],
+        
         stepTitles: ["Click the Search button", "Enter the name of the ingredient", "Sort and Filter"],
         testCaseGroups: [
           {
@@ -223,60 +246,33 @@ export const curriculumData: ModuleItem[] = [
     id: 3,
     slug: "nutrients",
     title: "Understanding nutrients",
-    lessonsCount: 5,
-    duration: "60 min",
-    objective: "Explore primary nutritional metrics and feed constraints.",
+    lessonsCount: 1,
+    duration: "15 min",
+    objective: "Identify key nutrients used in carabao feed formulation and understand how they are organized within the system.    ",
     completed: false,
     active: false,
     lessons: [
       {
         id: "3.1",
-        title: "Crude Protein & Energy Requirements",
+        title: "Navigating the Nutrients Module",
         duration: "15 min",
         isCompleted: true,
-        summary: "Understand protein and energy needs for proper ration formulation.",
+        summary: "Understand nutrient abbreviations, descriptions, units, and nutrient groups.",
         steps: [
-          "Review how crude protein supports growth and production.",
-          "Compare different energy sources used in feed.",
-          "See how protein and energy targets influence ingredient choice."
-        ]
+          "Click the Nutrients section in the Sidebar.",
+          "View each nutrient's abbreviation, description, unit, and nutrient group.",
+          "Use the Search button to look up nutrients by name.",
+          "Sort by names or group and Filter nutrients using the Sort and Filter buttons."
+        ],  
+        stepImages: [
+          ["/navNutri.jpg"],
+          ["/viewNutri.png"],
+          ["/searchNutri.jpg"],
+          ["/sortNutri.jpg"]
+        ],
+      
       },
-      {
-        id: "3.2",
-        title: "Dry Matter Intake (DMI) Calculations",
-        duration: "10 min",
-        isCompleted: true,
-        summary: "Calculate the amount of feed a carabao needs each day in dry matter form.",
-        steps: [
-          "Define dry matter intake and why it matters.",
-          "Use body weight and productivity to estimate DMI.",
-          "Apply DMI to evaluate feed formulas."
-        ]
-      },
-      {
-        id: "3.3",
-        title: "Fiber and Minerals in Carabao Diets",
-        duration: "15 min",
-        isCompleted: true,
-        summary: "Learn why fiber and minerals are essential for rumen health and overall balance.",
-        steps: [
-          "Understand the role of fiber in digestion.",
-          "Identify key minerals such as calcium and phosphorus.",
-          "Balance fiber and minerals in feed formulas."
-        ]
-      },
-      {
-        id: "3.4",
-        title: "Understanding Feed Constraints",
-        duration: "20 min",
-        isCompleted: true,
-        summary: "Explore formula constraints and how they shape practical ration design.",
-        steps: [
-          "Identify nutrient and ingredient constraints.",
-          "Prioritize the most important limits in each formula.",
-          "Adjust recipes while keeping safety and performance goals."
-        ]
-      }
+      
     ]
   },
   {
@@ -284,8 +280,8 @@ export const curriculumData: ModuleItem[] = [
     slug: "formulation",
     title: "Feed Formulation",
     lessonsCount: 4,
-    duration: "50 min",
-    objective: "Learn to build balanced feed formulas and optimize rations.",
+    duration: "40 min",
+    objective: " Create single and group carabao formulations, configure carabao profiles, add ingredients and nutrients, set formulation constraints, and interpret optimization results.    ",
     completed: false,
     active: false,
     lessons: [
@@ -295,96 +291,271 @@ export const curriculumData: ModuleItem[] = [
         duration: "15 min",
         isCompleted: false,
         summary: "Learn the basic principles of feed formulation and planning.",
+
+        stepTitles: [
+          "Open the Formulate Module",
+          "Create a New Formulation",
+          "Set Up Initial Details",
+          "Configure Carabao Details",
+          "Confirm Information",
+          "View the Formulation",
+
+        ],
+
         steps: [
-          "Review the goals of balanced feed formulation.",
-          "Match ingredient nutrients to target requirements.",
-          "Draft a simple formula before refining it."
+          "",
+          "Click Add New. Select Add Single Carabao",
+          "Enter the Farmer's Name",
+          "• Enter the Carabao Name\n • Enter the Body Weight.\n • Select the Carabao Type from the dropdown list\n • Enter a Description (optional)\n • Click Continue.",
+          "• Review all entered information\n • Select from the dropdown options\n  • Click Create\n",
+          "• Open the Single Formulation tab\n• Locate the created formulation\n• Click View\n",
+
+
+        ],
+
+        stepImages: [
+          ["/navFormu.jpg"],
+          ["/createFormuS.jpg","/selectSingle.jpg"],
+          ["/setupInitial.jpg"],
+          ["/configCarabao.jpg"],
+          ["/confirmInfo.jpg"],
+          ["/viewFormuS.jpg"]
+        ],
+        testCaseGroups: [
+          {
+            groupTitle: "Test Cases",
+            headerLabels: ["Field", "Sample Input"],
+            cases: [
+              { testCase: "Farmer Name", expectedResult: "Juan Dela Cruz" },
+              { testCase: "Formulation Name", expectedResult: "Lactating Feed Mix" },
+              { testCase: "Carabao Name", expectedResult: "Bessie" },
+              { testCase: "Body Weight", expectedResult: "450 kg" },
+              { testCase: "Carabao Type", expectedResult: "Lactating" },
+              { testCase: "Description", expectedResult: "Healthy adult lactating carabao" }
+
+            ]
+          }
         ]
       },
+
       {
         id: "4.2",
-        title: "Balancing Protein and Energy",
-        duration: "15 min",
+        title: "Adding Ingredients to a Formulation",
+        duration: "10 min",
         isCompleted: false,
-        summary: "See how to balance protein and energy without compromising the formula.",
+        summary: "Learn how to add roughages, concentrates, mineral supplements, and manage formulation ingredients.",
         steps: [
-          "Compare ingredient protein and energy contributions.",
-          "Adjust ratios to meet both targets.",
-          "Check the formula for nutrient balance."
-        ]
+          "Add Roughage  ",
+          "Add Concentrate",
+          "Add Vitamins/Minerals",
+          "Search Ingredients",
+          "Edit Formulation Information",
+          "Delete Ingredients",
+          
+        ],
+        stepImages: [
+          ["/addRoughage.jpg", "/addRoughage2.jpg"],
+          ["/addConcentrate.jpg"],
+          ["/addVits.jpg"],
+          ["/searchIng.jpg"],
+          ["/editFormu.jpg"],
+          ["/deleteIngre.jpg"]
+        ],
+        
       },
       {
         id: "4.3",
-        title: "Applying Feed Constraints",
-        duration: "10 min",
+        title: "Setting Ingredient and Nutrient Constraints",
+        duration: "6 min",
         isCompleted: false,
-        summary: "Apply practical constraints such as cost, ingredient availability, and safety limits.",
+        summary: "Learn how to configure ingredient limits and nutrient constraints before optimization.",
         steps: [
-          "Define the most important constraints for the recipe.",
-          "Use constraints to narrow ingredient choices.",
-          "Select the most viable balanced formula."
+          "Display Constraint Fields",
+          "Set Ingredient Limits",
+        ],
+        stepImages: [
+          ["/displayConstraints.jpg"],
+          ["/setIngre.jpg"],
         ]
       },
       {
         id: "4.4",
-        title: "Review and Adjustments",
+        title: "Running Optimization and Reading Results",
         duration: "10 min",
         isCompleted: false,
-        summary: "Review the formula and make adjustments for the best outcome.",
+        summary: "Learn how to optimize formulations and interpret optimization results.",
         steps: [
-          "Verify the formula against targets and constraints.",
-          "Evaluate cost and ingredient availability.",
-          "Adjust the recipe for better balance."
+          "Run Optimization",
+          "View Ingredient Breakdown",
+          "View Nutrient Breakdown",
+          "Generate PDF Report",
+          "Return to the Editor",
+          "Track Progress",
+
+        ],
+        stepImages: [
+          ["/runOptimization.jpg"],
+          ["/breakdown.jpg"],
+          ["/nutrients.jpg"],
+          ["/generate.jpg"],
+          ["/return.jpg"],
+          ["/track.jpg", "/track2.jpg"],
+
+
+
+
+          
         ]
+
       }
     ]
   },
   {
-    id: 5,
-    slug: "advanced",
-    title: "Advanced Features",
-    lessonsCount: 3,
-    duration: "40 min",
-    objective: "Explore advanced reporting, safety checks, and analytics tools.",
-    completed: false,
-    active: false,
-    lessons: [
-      {
-        id: "5.1",
-        title: "Safety and Validation Tools",
-        duration: "15 min",
-        isCompleted: false,
-        summary: "Use validation tools to ensure formulas are safe and compliant.",
-        steps: [
-          "Check formulas for nutrient and ingredient safety.",
-          "Review validation alerts and recommendations.",
-          "Fix any issues before finalizing the formula."
-        ]
-      },
-      {
-        id: "5.2",
-        title: "Analytics and Reporting",
-        duration: "15 min",
-        isCompleted: false,
-        summary: "Learn how to generate reports and use analytics for decision-making.",
-        steps: [
-          "Open the reporting dashboard and review key metrics.",
-          "Use filters to focus on the data you need.",
-          "Apply insights to improve future plans."
-        ]
-      },
-      {
-        id: "5.3",
-        title: "Advanced Workflow Tips",
-        duration: "10 min",
-        isCompleted: false,
-        summary: "Discover expert workflow tips for faster and more accurate planning.",
-        steps: [
-          "Use templates and shortcuts to save time.",
-          "Keep your ingredient library well organized.",
-          "Leverage advanced features for repeatable success."
-        ]
-      }
-    ]
-  }
+  id: 5,
+  slug: "advanced",
+  title: "Advanced Features",
+  lessonsCount: 3,
+  duration: "40 min",
+  objective: "Use advanced formulation tools, configure detailed constraints, and utilize AI-powered formulation assistance.",
+  completed: false,
+  active: false,
+  lessons: [
+    {
+      id: "5.1",
+      title: "Advanced Interface",
+      duration: "10 min",
+      isCompleted: false,
+      summary: "Learn how to use the Advanced Interface for detailed formulation configuration, including No Limits, Fixed (kg), and Manual Percentage (%) constraint types.",
+      steps: [
+        "Click Show Advanced, then select Kg-Based Constraints (Recommended) or Percentage-Based Constraints (Recommended for nutritionists).",
+        "Click the Trash icon to delete an ingredient or nutrient.",
+        "Choose one of the following constraint types: No Limits, Fixed (kg), or Manual Percentage (%).",
+        "Click Add Ingredients.",
+        "Click Add Nutrient.",
+        "Click Add Ratio, select two nutrients, and enter the ratio value.",
+        "Enter minimum and maximum nutrient values.",
+        "Click the Trash icon to delete entries.",
+        "Click Add Ingredient.",
+        "Click Add Nutrient.",
+        "Click Add Ratio.",
+        "Enter minimum and maximum values for ingredients and nutrients.",
+        "Click the Trash icon to delete entries.",
+        "Click Add Ingredient.",
+        "Enter the desired percentage for each ingredient.",
+        "Click Optimize.",
+        "Click the Trash icon to delete ingredients."
+      ],
+      stepTitles: [
+        "Open the Advanced Interface",
+        "Delete Ingredients or Nutrients",
+        "Select Constraint Type",
+        "No Limits – Add Ingredients",
+        "No Limits – Add Nutrients",
+        "No Limits – Add Nutrient Ratio Constraint",
+        "No Limits – Configure Nutrient Limits",
+        "No Limits – Delete Entries",
+        "Fixed (kg) – Add Ingredients",
+        "Fixed (kg) – Add Nutrients",
+        "Fixed (kg) – Add Nutrient Ratio",
+        "Fixed (kg) – Configure Limits",
+        "Fixed (kg) – Delete Entries",
+        "Manual Percentage (%) – Add Ingredients",
+        "Manual Percentage (%) – Set Ingredient Percentages",
+        "Manual Percentage (%) – Optimize",
+        "Manual Percentage (%) – Delete Ingredients"
+      ],
+      stepImages: [
+        ["/advancedShowAdvanced.jpg"],
+        ["/advancedDeleteEntry.jpg"],
+        ["/advancedConstraintType.jpg"],
+        ["/advancedNoLimitsAddIngredient.jpg"],
+        ["/advancedNoLimitsAddNutrient.jpg"],
+        ["/advancedNoLimitsAddRatio.jpg", "/advancedNoLimitsSelectNutrients.jpg", "/advancedNoLimitsEnterRatio.jpg"],
+        ["/advancedNoLimitsNutrientLimits.jpg"],
+        ["/advancedNoLimitsDeleteEntry.jpg"],
+        ["/advancedFixedAddIngredient.jpg"],
+        ["/advancedFixedAddNutrient.jpg"],
+        ["/advancedFixedAddRatio.jpg"],
+        ["/advancedFixedConfigureLimits.jpg"],
+        ["/advancedFixedDeleteEntry.jpg"],
+        ["/advancedManualAddIngredient.jpg"],
+        ["/advancedManualSetPercentages.jpg"],
+        ["/advancedManualOptimize.jpg", "/advancedManualOptimizeResults.jpg"],
+        ["/advancedManualDeleteIngredient.jpg"]
+      ],
+      testCaseGroups: [
+        {
+          groupTitle: "Add Ingredients",
+          headerLabels: ["Ingredient", "Expected Result"],
+          cases: [
+            { testCase: "Napier Grass", expectedResult: "Ingredient is added to the formulation" },
+            { testCase: "Rice Bran", expectedResult: "Ingredient is added to the formulation" },
+            { testCase: "Corn Meal", expectedResult: "Ingredient is added to the formulation" },
+            { testCase: "Molasses", expectedResult: "Ingredient is added to the formulation" }
+          ]
+        },
+        {
+          groupTitle: "Add Nutrients",
+          headerLabels: ["Nutrient", "Expected Result"],
+          cases: [
+            { testCase: "Crude Protein", expectedResult: "Nutrient is added to the formulation" },
+            { testCase: "Dry Matter", expectedResult: "Nutrient is added to the formulation" },
+            { testCase: "Calcium", expectedResult: "Nutrient is added to the formulation" },
+            { testCase: "Phosphorus", expectedResult: "Nutrient is added to the formulation" }
+          ]
+        },
+        {
+          groupTitle: "Add Nutrient Ratio",
+          headerLabels: ["Nutrient 1 : Nutrient 2", "Ratio"],
+          cases: [
+            { testCase: "Calcium : Phosphorus", expectedResult: "2 : 1" }
+          ]
+        },
+        {
+          groupTitle: "Configure Fixed (kg)",
+          headerLabels: ["Ingredient", "Minimum / Maximum"],
+          cases: [
+            { testCase: "Napier Grass", expectedResult: "Min 25 kg / Max 40 kg" },
+            { testCase: "Rice Bran", expectedResult: "Min 5 kg / Max 10 kg" },
+            { testCase: "Corn Meal", expectedResult: "Min 3 kg / Max 8 kg" }
+          ]
+        },
+        {
+          groupTitle: "Configure Manual Percentage",
+          headerLabels: ["Ingredient", "Percentage"],
+          cases: [
+            { testCase: "Napier Grass", expectedResult: "65%" },
+            { testCase: "Rice Bran", expectedResult: "20%" },
+            { testCase: "Corn Meal", expectedResult: "12%" },
+            { testCase: "Mineral Mix", expectedResult: "3%" }
+          ]
+        }
+      ]
+    },
+    {
+      id: "5.2",
+      title: "Analytics and Reporting",
+      duration: "15 min",
+      isCompleted: false,
+      summary: "Learn how to generate reports and use analytics for decision-making.",
+      steps: [
+        "Open the reporting dashboard and review key metrics.",
+        "Use filters to focus on the data you need.",
+        "Apply insights to improve future plans."
+      ]
+    },
+    {
+      id: "5.3",
+      title: "Advanced Workflow Tips",
+      duration: "10 min",
+      isCompleted: false,
+      summary: "Discover expert workflow tips for faster and more accurate planning.",
+      steps: [
+        "Use templates and shortcuts to save time.",
+        "Keep your ingredient library well organized.",
+        "Leverage advanced features for repeatable success."
+      ]
+    }
+  ]
+}
 ];

@@ -74,10 +74,13 @@ export default function Sidebar() {
                     href={`/modules/${selectedModule.slug}/${idx + 1}`}
                     className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-emerald-100 hover:bg-emerald-800/50 transition-colors ${isActiveLesson ? 'bg-emerald-800/30' : ''}`}
                   >
-                    <div className={`w-5 h-5 rounded-md flex items-center justify-center text-xs font-bold bg-[#D2E4D6] text-[#1E5631]`}>
+                    <div className="w-5 h-5 shrink-0 rounded-md flex items-center justify-center text-xs font-bold bg-[#D2E4D6] text-[#1E5631]">
                       {idx + 1}
                     </div>
-                    <span className="font-medium text-sm text-emerald-50">Lesson {idx + 1}</span>
+                    
+                    <span className="font-medium text-sm text-emerald-50 whitespace-normal break-words">
+                      {lesson.title || `Lesson ${idx + 1}`}
+                    </span>
                   </Link>
                 );
               })}
@@ -112,7 +115,7 @@ export default function Sidebar() {
           className="w-full bg-[#A36A3B] hover:bg-[#8F5B30] text-white text-sm font-medium py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-colors shadow-md"
         >
           <Download className="w-4 h-4" />
-          Download Templates
+          Download Module
         </Link>
   
         <div className="space-y-1 text-sm text-emerald-100">

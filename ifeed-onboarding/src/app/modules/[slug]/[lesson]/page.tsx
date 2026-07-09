@@ -7,7 +7,7 @@ interface LessonPageProps {
   params: Promise<{ slug: string; lesson: string }>;
 }
 
- // Page that brings the selected module
+// Page that brings the selected module
 export default async function LessonPage({ params }: LessonPageProps) {
   const { slug, lesson } = await params;
 
@@ -22,6 +22,10 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
   // Specific lesson details and lessons as navigation options.
   const lessonItem = moduleItem.lessons[lessonIndex];
+  if (!lessonItem) {
+    notFound();
+    return null;
+  }
   const prevLesson = lessonIndex > 0 ? lessonIndex : null;
   const nextLesson = lessonIndex + 1 < moduleItem.lessons.length ? lessonIndex + 2 : null;
 
@@ -65,11 +69,21 @@ export default async function LessonPage({ params }: LessonPageProps) {
                       {idx + 1}
                     </div>
                     <div>
-                      <div className="text-base font-semibold text-[#1E5631]">{idx + 1}. Step {idx + 1}</div>
+                      <div className="text-base font-semibold text-[#1E5631]">
+                        {idx + 1}. {lessonItem.stepTitles?.[idx] || `Step ${idx + 1}`}
+                      </div>
                       <p className="mt-2 text-gray-600 leading-7">
                         {stepText}
                       </p>
-                      {idx === 0 ? (
+                      {lessonItem.stepImages && lessonItem.stepImages[idx] ? (
+                        <div className="mt-4 rounded-3xl border border-[#D8E4D7] bg-white p-4">
+                      <img
+                        src={lessonItem.stepImages[idx] as unknown as string} // or just 'as any' if you're in a rush
+                        alt={lessonItem.stepTitles?.[idx] || `Step ${idx + 1}`}
+                        className="rounded-2xl w-full object-cover max-h-96"
+                      />
+                        </div>
+                      ) : idx === 0 ? (
                         <div className="mt-4 rounded-3xl border border-[#D8E4D7] bg-white p-4">
                           <div className="h-48 rounded-2xl bg-[#F3F6F3] flex items-center justify-center text-sm text-gray-400">
                             Screenshot / Media

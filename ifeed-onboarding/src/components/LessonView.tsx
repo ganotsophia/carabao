@@ -8,6 +8,7 @@ type LessonViewProps = {
   customSummary?: string;
   customSteps?: string[];
   customStepTitles?: string[];
+  tabs?: React.ReactNode;
 };
 
 export default function LessonView({
@@ -16,16 +17,17 @@ export default function LessonView({
   customSummary,
   customSteps,
   customStepTitles,
+  tabs,
 }: LessonViewProps) {
   const lessonItem = moduleItem.lessons[lessonIndex];
-  const summary = customSummary ?? lessonItem.summary;
-  const steps = customSteps ?? lessonItem.steps;
-  const stepTitles = customStepTitles ?? lessonItem.stepTitles;
-  const testCases = lessonItem.testCases;
-  const testCaseGroups = lessonItem.testCaseGroups;
+  const summary = customSummary ?? lessonItem?.summary ?? "";
+  const steps = customSteps ?? lessonItem?.steps ?? [];
+  const stepTitles = customStepTitles ?? lessonItem?.stepTitles;
+  const testCases = lessonItem?.testCases;
+  const testCaseGroups = lessonItem?.testCaseGroups;
   const prevLesson = lessonIndex > 0 ? lessonIndex : null;
   const nextLesson = lessonIndex + 1 < moduleItem.lessons.length ? lessonIndex + 2 : null;
-
+  
   return (
     <div className="max-w-6xl mx-auto space-y-6">
       {/* Header */}
@@ -36,11 +38,14 @@ export default function LessonView({
             Module {moduleItem.id}
           </div>
           <h1 className="text-4xl font-bold text-[#1E5631]">
-            Lesson {lessonIndex + 1}: {lessonItem.title}
+            Lesson {lessonIndex + 1}: {lessonItem?.title ?? "Untitled Lesson"}
           </h1>
           <p className="max-w-3xl text-gray-600 leading-7">{summary}</p>
+
         </div>
+
       </div>
+      {tabs && <div className="px-2">{tabs}</div>}
 
       <div className="grid gap-8 lg:grid-cols-[1.8fr_1fr]">
         <div className="space-y-6">
@@ -70,14 +75,27 @@ export default function LessonView({
                             ? `Step ${idx + 1}. ${stepTitles[idx]}`
                             : `Step ${idx + 1}`}
                         </div>
-                        <p className="mt-2 text-gray-600 leading-7">{stepText}</p>
-                        {idx === 0 && (
-                          <div className="mt-4 rounded-2xl border border-[#D8E4D7] bg-white p-4">
-                            <div className="h-40 rounded-xl bg-[#F3F6F3] flex items-center justify-center text-sm text-gray-400">
-                              Screenshot / Media
-                            </div>
+                        <p className="mt-1 text-m text-gray-600 whitespace-pre-line">
+                          {stepText}
+                        </p>
+
+                        {/* Check if the step has an array of images and ensure it's not empty */}
+                        {lessonItem?.stepImages && lessonItem.stepImages[idx] && lessonItem.stepImages[idx].length > 0 ? (
+                          <div className="mt-4 flex flex-col gap-4"> {/* Stack multiple images vertically */}
+                            {lessonItem.stepImages[idx].map((imgUrl, imgIdx) => (
+                              // Only render if the string isn't empty
+                              imgUrl && (
+                                <div key={imgIdx} className="rounded-2xl border border-[#D8E4D7] bg-white p-4">
+                                  <img
+                                    src={imgUrl}
+                                    alt={`${stepTitles?.[idx] || `Step ${idx + 1}`} - Visual ${imgIdx + 1}`}
+                                    className="rounded-xl w-full max-w-3xl mx-auto h-auto object-contain max-h-[500px]"
+                                  />
+                                </div>
+                              )
+                            ))}
                           </div>
-                        )}
+                        ) : null}
                       </div>
                     </div>
                   ))}
@@ -153,7 +171,7 @@ export default function LessonView({
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between pt-2 border-t border-gray-100">
                 <div className="space-y-1">
                   <p className="text-xs uppercase tracking-[0.24em] text-[#7C9B7B]">Lesson duration</p>
-                  <p className="text-lg font-semibold text-[#1E5631]">{lessonItem.duration}</p>
+                  <p className="text-lg font-semibold text-[#1E5631]">{lessonItem?.duration ?? ""}</p>
                 </div>
                 <div className="flex flex-wrap gap-3">
                   <Link
